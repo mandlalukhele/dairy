@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2020 at 06:14 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.7
+-- Generation Time: Jan 30, 2020 at 03:17 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -87,7 +87,6 @@ INSERT INTO `manage_website` (`id`, `title`, `short_title`, `logo`, `footer`, `c
 --
 
 CREATE TABLE `products` (
-  `id` int(50) NOT NULL,
   `user_id` int(11) NOT NULL,
   `importer` varchar(50) NOT NULL,
   `borderpost` varchar(50) NOT NULL,
@@ -96,7 +95,7 @@ CREATE TABLE `products` (
   `sad500` varchar(50) NOT NULL,
   `dairy` varchar(30) NOT NULL,
   `invoiceNo` varchar(50) NOT NULL,
-  `qty` varchar(20) NOT NULL,
+  `qty` text NOT NULL,
   `amount` varchar(20) NOT NULL,
   `levy` varchar(20) NOT NULL,
   `created_date` date NOT NULL
@@ -106,12 +105,36 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `user_id`, `importer`, `borderpost`, `permitNo`, `hevicle`, `sad500`, `dairy`, `invoiceNo`, `qty`, `amount`, `levy`, `created_date`) VALUES
-(0, 0, 'L.C.V Malala', 'Ngwenya', '11/117/201-1', 'spar10mp', 'C201700', 'creamers', '258756', '20', '493.92', '49.39', '2019-11-13'),
-(0, 0, 'Parmalat swd', 'Ngwenya', '11/126/2011-1', 'dxc978ec', 'c201923', 'HHT Milk', '546', '30600', '183855.00', '18385', '2019-11-13'),
-(0, 6, 'L.C.V Malala', 'Ngwenya', '11/126/2011-1', 'spar10mp', 'C201700', 'creamers', '258756', '20', '183855.00', '18385', '2019-11-13'),
-(0, 7, 'emais', 'oshoek', '86868989', '6886689', 'c0ghghjhj', 'HHT Milk', '66777', '900', '77000', '2000', '2019-11-26'),
-(0, 1, 'bred', 'Ngwenya', '4565656', '5564656', '53535', 'yogurt', '55666', '5000', '500', '39', '2020-01-08');
+INSERT INTO `products` (`user_id`, `importer`, `borderpost`, `permitNo`, `hevicle`, `sad500`, `dairy`, `invoiceNo`, `qty`, `amount`, `levy`, `created_date`) VALUES
+(6, 'L.C.V Malala', 'Ngwenya', '11/126/2011-1', 'spar10mp', 'C201700', 'creamers', '258756', '20', '183855.00', '18385', '2019-11-13'),
+(7, 'emais', 'oshoek', '86868989', '6886689', 'c0ghghjhj', 'HHT Milk', '66777', '900', '77000', '2000', '2019-11-26'),
+(1, 'bred', 'Ngwenya', '4565656', '5564656', '53535', 'yogurt', '55666', '5000', '500', '39', '2020-01-08'),
+(1, 'mandla', 'Ngwenya', '674778', '6464756787', '553', 'milk', '564', '50000', '50000', '400', '2020-01-15'),
+(1, 'sipho', 'Ngwenya', '54645', '4646', '646', 'poweder', '5657', '0', '2000', '200', '2020-01-15'),
+(1, 'gugu', 'Oshoek', '6757', '5676', '7676', 'rama', '5646', '0', '300', '30', '2020-01-15'),
+(1, 'dfghh', 'Oshoek', '6757', '45675', '757', 'fhhfh', '7567', '0', '700', '8', '2020-01-15'),
+(1, 'gfhfh', 'Ngwenya', '58768', '67567', '7567', 'gfghh', '567567', '0', '700', '899', '2020-01-15'),
+(1, 'gfdg', 'Ngwenya', '64646', '464', '546', 'dffghgh', '4677', '0', '600', '60', '2020-01-15'),
+(1, 'hfgh', 'Sicunusa', '56757', '7568', '5757', 'ghjkhgk', '8678', '0', '9000', '900', '2020-01-15'),
+(1, 'gfhfh', 'Lavumisa', '65', '757', '757', 'gjgj', '575', '0', '800', '80', '2020-01-15'),
+(1, 'sdgfdg', 'Mananga', '45647', '466', '456', 'hgfh', '466', '0', '800', '80', '2020-01-15'),
+(1, 'sdgfdg', 'Mananga', '45647', '466', '456', 'hgfh', '466', '0', '800', '80', '2020-01-15'),
+(1, 'ghgfhhf', 'Ngwenya', '7657', '4757', '567567', 'hgfh', '646', '0', '800', '80', '2020-01-15'),
+(1, 'gdghghd', 'Lavumisa', '4646', '466', '464', 'gjj', '4676', '0', '800', '80', '2020-01-15'),
+(1, 'gdghghd', 'Lavumisa', '4646', '466', '464', 'gjj', '4676', '0', '800', '80', '2020-01-15'),
+(1, 'gdghghd', 'Oshoek', '4646', '4646', '7868', 'hgfh', '4676', '0', '800', '80', '2020-01-15'),
+(1, 'gfhfgh', 'Lavumisa', '7567', '7567', '5757', 'gjghk', '757', '0', '800', '80', '2020-01-15'),
+(1, 'teyy', 'Oshoek', '6464', '47688', '687', 'fghgfj', '45757', '', '800', '80', '2020-01-15'),
+(1, 'tyryyu', 'Sicunusa', '7577', '467', '4565647', 'fgjgkj', '5868', '', '800', '80', '2020-01-15'),
+(1, 'mosi', 'Sicunusa', '7657578', '56758', '56757', 'jgjkk', '7567', '0.5', '800', '80', '2020-01-15'),
+(1, 'gdghghd', 'Oshoek', '7578', '75858', '7578', 'fghfh', '5668', '', '800', '64', '2020-01-15'),
+(1, 'fgdgg', 'Sicunusa', '567567', '56757', '77', 'gjgk', '56858', '', '800', '64', '2020-01-15'),
+(7, 'Farm chemicals', 'Mananga', '676876', '5877', '6867', 'Goats milk UHT', '5786', '', '800', '24', '2020-01-17'),
+(6, 'Clover', 'Sicunusa', '457', '7657', '45764', 'Goats milk UHT', '467', '', '600', '42.00000000000001', '2020-01-21'),
+(6, 'Logico', 'Oshoek', '457', '7657', '457457', 'Fresh milk', '79780', '', '800', '32', '2020-01-21'),
+(1, 'Farm chemicals', 'Ngwenya', '67', '6789790', '90789', 'Creamers', '789080', '', '9000', '270', '2020-01-22'),
+(1, 'Parmalat', 'Mananga', '8687', '7898790', '6868', 'Full cream milk powder(P)', '1245', '8', '600', '36', '2020-01-22'),
+(6, 'Ezulwini PnP', 'Oshoek', '2453456', '64787689', '47457', 'Fresh milk', '5689', '50', '5000', '500', '2020-01-22');
 
 -- --------------------------------------------------------
 
